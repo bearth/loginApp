@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<title>Login App</title>
+</head>
+<body ng-controller="adminCtrl">
+
+<div class="container">
+	<h1>Account List</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Username</th>
+				<th>Password</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td><input class="form-control" ng-model="login.username" ng-disabled="true"></td>
+				<td><input class="form-control" ng-model="login.password"></td>
+				<td><button class="btn btn-info" ng-click="update()">Update</button></td>
+			</tr>
+			<tr ng-repeat="account in data">
+				<td>{{$index+1}}</td>
+				<td>{{account.username}}</td>
+				<td>{{account.password}}</td>
+				<td><button class="btn btn-warning" ng-click="edit(account._id)">Edit</button></td>
+				<td><button class="btn btn-danger" ng-click="remove(account._id)">Remove</button></td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+<script src="controller/controller.js"></script>
+
+</body>
+</html>
